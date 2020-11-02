@@ -15,7 +15,7 @@ dag = DAG('task_test', description='Another tutorial DAG',
           catchup=True)
 
 
-def process_func(redshift_connection_id: str, mysql_connection_id: str, chunk_size: int, **kwargs):
+def process_func(**kwargs):
     print(kwargs["execution_date"])
 
 
@@ -25,9 +25,6 @@ t1 = PythonOperator(
     python_callable=process_func,
     provide_context=True,
     op_kwargs={
-        "redshift_connection_id": "hc_redshift",
-        "mysql_connection_id": "analyticsDb",
-        "chunk_size": int(Variable.get("TRACKING_SESSION_CHUNK_SIZE"))
     }
 )
 
@@ -37,9 +34,7 @@ t2 = PythonOperator(
     python_callable=process_func,
     provide_context=True,
     op_kwargs={
-        "redshift_connection_id": "hc_redshift",
-        "mysql_connection_id": "analyticsDb",
-        "chunk_size": int(Variable.get("TRACKING_SESSION_CHUNK_SIZE"))
+
     }
 )
 
@@ -49,9 +44,7 @@ t3 = PythonOperator(
     python_callable=process_func,
     provide_context=True,
     op_kwargs={
-        "redshift_connection_id": "hc_redshift",
-        "mysql_connection_id": "analyticsDb",
-        "chunk_size": int(Variable.get("TRACKING_SESSION_CHUNK_SIZE"))
+
     }
 )
 
@@ -61,9 +54,6 @@ t4 = PythonOperator(
     python_callable=process_func,
     provide_context=True,
     op_kwargs={
-        "redshift_connection_id": "hc_redshift",
-        "mysql_connection_id": "analyticsDb",
-        "chunk_size": int(Variable.get("TRACKING_SESSION_CHUNK_SIZE"))
     }
 )
 
@@ -73,9 +63,6 @@ t5 = PythonOperator(
     python_callable=process_func,
     provide_context=True,
     op_kwargs={
-        "redshift_connection_id": "hc_redshift",
-        "mysql_connection_id": "analyticsDb",
-        "chunk_size": int(Variable.get("TRACKING_SESSION_CHUNK_SIZE"))
     }
 )
 
@@ -85,9 +72,7 @@ t6 = PythonOperator(
     python_callable=process_func,
     provide_context=True,
     op_kwargs={
-        "redshift_connection_id": "hc_redshift",
-        "mysql_connection_id": "analyticsDb",
-        "chunk_size": int(Variable.get("TRACKING_SESSION_CHUNK_SIZE"))
+
     }
 )
 
@@ -98,9 +83,7 @@ t7 = PythonOperator(
     python_callable=process_func,
     provide_context=True,
     op_kwargs={
-        "redshift_connection_id": "hc_redshift",
-        "mysql_connection_id": "analyticsDb",
-        "chunk_size": int(Variable.get("TRACKING_SESSION_CHUNK_SIZE"))
+
     }
 )
 
