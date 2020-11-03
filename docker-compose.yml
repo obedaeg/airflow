@@ -12,7 +12,7 @@ services:
                 max-file: "3"
 
     webserver:
-        image: puckel/docker-airflow:1.10.9
+        build: .
         restart: always
         depends_on:
             - postgres
@@ -34,3 +34,17 @@ services:
             interval: 30s
             timeout: 30s
             retries: 3
+
+    db:
+        image: mysql:5.7
+        volumes:
+            - ./db_data:/var/lib/mysql
+            - ./script/schema.sql:/docker-entrypoint-initdb.d/1.sql
+        restart: always
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: test123
+            MYSQL_DATABASE: test
+            MYSQL_USER: test
+            MYSQL_PASSWORD: test123
