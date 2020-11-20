@@ -25,6 +25,7 @@ services:
                 max-file: "3"
         volumes:
             - ./dags:/usr/local/airflow/dags
+            - ./monitor:/home/airflow/monitor
             # - ./plugins:/usr/local/airflow/plugins
         ports:
             - "8080:8080"
@@ -38,7 +39,7 @@ services:
     db:
         image: mysql:5.7
         volumes:
-            - ./db_data:/var/lib/mysql
+            #- ./db_data:/var/lib/mysql
             - ./script/schema.sql:/docker-entrypoint-initdb.d/1.sql
         restart: always
         ports:
