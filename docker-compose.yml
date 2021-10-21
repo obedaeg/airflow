@@ -65,7 +65,7 @@ services:
     command: scheduler
     restart: always
 
-  airflow-worker1:
+  airflow-worker:
     <<: *airflow-common
     command: celery worker
     restart: always
