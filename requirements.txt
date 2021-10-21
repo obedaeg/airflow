@@ -1,2 +1,2 @@
-pandas (>=0.24<1.0)
-structlog (>=19.1.0, <20.0)
+pandas
+structlog

@@ -3,7 +3,7 @@ from datetime import timedelta
 from airflow import DAG
 from airflow.hooks.mysql_hook import MySqlHook
 from airflow.operators.python_operator import PythonOperator
-from airflow.operators.sensors import ExternalTaskSensor
+from airflow.sensors.external_task_sensor import ExternalTaskSensor
 from airflow.utils.dates import days_ago
 from structlog import get_logger
 import pandas as pd
