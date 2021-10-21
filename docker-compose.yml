@@ -1,17 +1,3 @@
-# --------------------------------------------------------------------------------------------
-# Docker Compose File for creating production environment,
-# use this to create your own dev environment.
-#
-# Working on Airflow 2.0 / Python 3.7
-#
-# Owner: Sergio Fajardo
-# Created Date: 2020-02-03
-# Run: docker build -t isc_airflow_init_image -f INIT-Dockerfile .
-# Run: docker build -t isc_airflow_base_image .
-# Run: docker-compose up airflow-init
-# Run: docker-compose up
-# --------------------------------------------------------------------------------------------
-
 version: '3'
 x-airflow-common:
   &airflow-common
